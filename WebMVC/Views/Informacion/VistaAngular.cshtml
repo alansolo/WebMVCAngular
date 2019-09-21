@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>    
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/Informacion/Informacion.js"></script>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaAngular</title>
+</head>
+<body>
+    <div ng-app="MyApp" ng-controller="MyController"> 
+
+        <div class="alert alert-primary" role="alert">
+            {{HolaMundo}}
+        </div>
+
+        <div class="alert alert-secondary" role="alert">
+            {{ControlText}}
+        </div>
+
+        <button class="btn btn-primary" ng-show="MostrarBoton" ng-dblclick="DobleClickBoton(ControlText, Boton)">
+            Click {{Boton}}
+        </button>
+
+        <input type="text" class="form-control" ng-model="ControlText" />
+
+        <button class="btn btn-success" ng-click="LlamarControlador()">
+            Cargar Tabla
+        </button>
+
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Boton</th>
+                    <th>Agregar</th>
+                    <th>Agregar 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="d in ListaDatos">
+                    <th>{{d.Id}}</th>
+                    <td>{{d.Nombre}}</td>
+                    <td>{{d.Descripcion}}</td>
+                    <td>
+                        <button class="btn btn-secondary" ng-click="ModificarColumna(d)">
+                            Click...
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="AgregarElemento(d)">
+                            Add...
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" ng-click="AgregarElemento2()">
+                            Add 2...
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
