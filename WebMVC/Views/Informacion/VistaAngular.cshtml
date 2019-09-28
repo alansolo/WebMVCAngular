@@ -13,6 +13,7 @@
     <script src="~/Scripts/Informacion/Informacion.js"></script>
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Informacion/Informacion.css" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width" />
     <title>VistaAngular</title>
@@ -32,11 +33,47 @@
             Click {{Boton}}
         </button>
 
-        <input type="text" class="form-control" ng-model="ControlText" />
+        <input type="text" value="boton azul" class="form-control" ng-model="ControlText" ng-class="ClaseCss" ng-click="ClickBoton()" />
 
-        <button class="btn btn-success" ng-click="LlamarControlador()">
+        <button class="btn btn-success" ng-click="LlamarControlador()" ng-disabled="Validar()" >
             Cargar Tabla
         </button>
+
+        <input type="text" value="key up" class="form-control" ng-keyup="Presionar()"/>
+
+        <div ng-repeat="d in ListaDatos">
+            <button class="btn btn-dark">
+                {{d.Nombre}}
+            </button>
+        </div>
+
+        <select class="form-control" id="rolUsuarioMod" ng-model="ControlSeleccion" ng-options="data as data.Nombre for data in ListaDatos track by data.Id" ng-change="FuncionSeleccion(ControlSeleccion)" required>
+            <option value="">-- SELECCIONE --</option>
+        </select>
+
+        <select class="form-control" id="rolUsuarioMod2" ng-model="ControlSeleccion" ng-change="FuncionSeleccion(ControlSeleccion)">
+            <option value="">-- SELECCIONE --</option>
+            <option ng-repeat="d in ListaDatos" value="{{d}}">{{d.Nombre}}</option>
+        </select>
+
+        <div ng-switch="ControlSeleccion.Id">
+            <div ng-switch-when="1">
+                <h1>Dogs</h1>
+                <p>Welcome to a world of dogs.</p>
+            </div>
+            <div ng-switch-when="2">
+                <h1>Tutorials</h1>
+                <p>Learn from examples.</p>
+            </div>
+            <div ng-switch-when="3">
+                <h1>Cars</h1>
+                <p>Read about cars.</p>
+            </div>
+            <div ng-switch-default>
+                <h1>Switch</h1>
+                <p>Select topic from the dropdown, to switch the content of this DIV.</p>
+            </div>
+        </div>
 
         <table class="table table-striped">
             <thead class="thead-dark">

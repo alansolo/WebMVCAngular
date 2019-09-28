@@ -2,6 +2,10 @@
 
 app.controller("MyController", function ($scope, $http, $window) {
 
+    $scope.Desabilitar = true;
+
+    $scope.ClaseCss = "boton_azul";
+
     $scope.HolaMundo = "Hola mundo 2.";
 
     $scope.Boton = "Da click";
@@ -12,12 +16,15 @@ app.controller("MyController", function ($scope, $http, $window) {
 
     $scope.ClickBoton = function () {
         $scope.HolaMundo = "Ya realizaste click.";
+        $scope.ClaseCss = "boton_rojo";
     }
 
     $scope.DobleClickBoton = function (texto, texto2) {
         $scope.HolaMundo = "Ya realizaste doble click.";
 
         $scope.Boton = texto + "-" + texto2;
+
+        $scope.Desabilitar = false;
     }
 
     $scope.LlamarControlador = function()
@@ -97,6 +104,27 @@ app.controller("MyController", function ($scope, $http, $window) {
         });
 
 
+    }
+
+    $scope.Validar = function () {
+        if ($scope.ControlText.length > 0) {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    $scope.Presionar = function () {
+        alert("Se presiono");
+    }
+
+    $scope.FuncionSeleccion = function (data) {
+
+        var dato2 = JSON.parse(data);
+
+        alert(dato2.Descripcion);
     }
 
 });

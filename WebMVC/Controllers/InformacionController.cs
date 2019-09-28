@@ -39,6 +39,13 @@ namespace WebMVC.Controllers
             datos.Descripcion = "Descripcion 3";
             listaDatos.Add(datos);
 
+            listaDatos = listaDatos.Where(n => n.Id == 1 || n.Id == 3).OrderBy(m => m.Nombre).ToList();
+
+            listaDatos.ForEach(n =>
+            {
+                n.Descripcion = listaDatos.Sum(x => x.Id).ToString();
+            });
+
             return Json(listaDatos, JsonRequestBehavior.AllowGet);
         }
 
