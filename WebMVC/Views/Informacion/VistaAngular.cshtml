@@ -9,7 +9,9 @@
 <head>
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>    
+    <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
+
     <script src="~/Scripts/Informacion/Informacion.js"></script>
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -22,7 +24,7 @@
     <div ng-app="MyApp" ng-controller="MyController"> 
 
         <div class="alert alert-primary" role="alert">
-            {{HolaMundo}}
+            1.-{{HolaMundo}} 2.-{{HolaMundo}}
         </div>
 
         <div class="alert alert-secondary" role="alert">
@@ -33,9 +35,37 @@
             Click {{Boton}}
         </button>
 
+        @*FORMULARIO*@
+
         <input type="text" value="boton azul" class="form-control" ng-model="ControlText" ng-class="ClaseCss" ng-click="ClickBoton()" />
 
-        <button class="btn btn-success" ng-click="LlamarControlador()" ng-disabled="Validar()" >
+        <br />
+
+        <input type="text" title="nombre" ng-model="Formulario_Model.Nombre" />
+
+        <br />
+
+        <input type="text" title="apellido paterno" ng-model="Formulario_Model.ApellidoPaterno"/>
+
+        <input type="text" title="apellido materno" ng-model="Formulario_Model.ApellidoMaterno"/>
+
+        <span>{{Formulario_Model.ApellidoPaterno}}</span>
+
+        <br />
+
+        <button ng-click="LlenarFormulario()">Llenar Formulario</button>
+
+        <button ng-click="VerFormulario()">Ver Formulario</button>
+
+        <br />
+
+        <button ng-click="PasarDatos()">PasarDatos</button>
+
+        <button class="btn btn-primary" ng-click="FuncionModel()">
+            Ver Model
+        </button>
+
+        <button class="btn btn-success" ng-click="LlamarControlador()" ng-disabled="Desabilitar" >
             Cargar Tabla
         </button>
 
@@ -109,6 +139,80 @@
                 </tr>
             </tbody>
         </table>
+
+
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="d in ListaFormulario">
+                    <td>
+                        {{d.Id}}
+                    </td>
+                    <td>
+                        <input type="text" ng-model="d.Nombre" />
+                    </td>
+                    <td>
+                        <input type="text" ng-model="d.ApellidoPaterno" />
+                    </td>
+                    <td>
+                        <input type="text" ng-model="d.ApellidoMaterno" />
+                    </td> 
+                    <td>
+                        <button class="btn btn-secondary" ng-click="EditarFormulario(d)">
+                            Editar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Insertar nuevo
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" title="nombrte" ng-model="FormularioNuevo.Nombre" />
+                        <br />
+                        <input type="text" title="apellido paterno" ng-model="FormularioNuevo.ApellidoPaterno" />
+                        <br />
+                        <input type="text" title="apellido materno" ng-model="FormularioNuevo.ApellidoMaterno" />
+                        <br />
+
+                        <button ng-click="InsertarFormulario()" class="btn-dark btn-primary">Guardar</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+
 
     </div>
 </body>

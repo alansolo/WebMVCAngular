@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -64,6 +65,67 @@ namespace WebMVC.Controllers
 
             return Json(ListaDatos, JsonRequestBehavior.AllowGet);
 
+        }
+
+        public JsonResult LlenarFormulario()
+        {
+            Formulario formulario = new Formulario();
+
+            formulario.Nombre = "Kiba";
+            formulario.ApellidoPaterno = "Husky";
+            formulario.ApellidoMaterno = "Alaska";
+
+            return Json(formulario, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult PasarDatos(Formulario Formulario_JSON)
+        {
+
+            string nombre = Formulario_JSON.Nombre;
+
+            Negocio.NegFormulario negFormulario = new NegFormulario();
+
+            List<Formulario> ListaFormulario = negFormulario.GetFormulario();
+
+
+            return Json(ListaFormulario, JsonRequestBehavior.AllowGet);
+        }
+    
+        public JsonResult EditarFormulario(Formulario Formulario_Editar)
+        {
+            var elemento = Formulario_Editar;
+
+            Negocio.NegFormulario negFormulario = new NegFormulario();
+
+            string resultado = "";
+
+            resultado = negFormulario.UpdateFormulario(Formulario_Editar);
+
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult InsertFormulario(Formulario Formulario_Insert)
+        {
+            Negocio.NegFormulario negFormulario = new NegFormulario();
+
+            List<Formulario> ListaFormulario = new List<Formulario>();
+
+            ListaFormulario = negFormulario.InsertFormulario(Formulario_Insert);
+
+            if(ListaFormulario.Count > 0)
+            {
+                Formulario_Insert = ListaFormulario.FirstOrDefault();
+            }
+
+
+            return Json(Formulario_Insert, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Inicializar()
+        {
+            Formulario formulario = new Formulario();
+
+            return Json(formulario, JsonRequestBehavior.AllowGet);
         }
     }
 }
