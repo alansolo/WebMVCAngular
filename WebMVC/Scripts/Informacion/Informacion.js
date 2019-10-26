@@ -274,4 +274,31 @@ app.controller("MyController", function ($scope, $http, $window) {
         });
     }
 
+    $scope.UtilizarEF = function () {
+
+        $.ajax({
+            type: "POST",
+            url: "/Informacion/UtilizarEF",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',           
+            success: function (datos) {
+
+                //$scope.ListaFormulario = datos;
+
+                //if (datos != null) {
+
+                //    $scope.ListaFormulario.push(datos);
+
+                //}
+
+                $scope.$apply();
+
+            },
+            error: function (error) {
+
+            }
+        });
+    }
+
+
 });
