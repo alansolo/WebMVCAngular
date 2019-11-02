@@ -16,12 +16,13 @@
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/Informacion/Informacion.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width" />
     <title>VistaAngular</title>
 </head>
 <body>
-    <div ng-app="MyApp" ng-controller="MyController"> 
+    <div ng-app="MyApp" ng-controller="MyController">
 
         <div class="alert alert-primary" role="alert">
             1.-{{HolaMundo}} 2.-{{HolaMundo}}
@@ -45,9 +46,9 @@
 
         <br />
 
-        <input type="text" title="apellido paterno" ng-model="Formulario_Model.ApellidoPaterno"/>
+        <input type="text" title="apellido paterno" ng-model="Formulario_Model.ApellidoPaterno" />
 
-        <input type="text" title="apellido materno" ng-model="Formulario_Model.ApellidoMaterno"/>
+        <input type="text" title="apellido materno" ng-model="Formulario_Model.ApellidoMaterno" />
 
         <span>{{Formulario_Model.ApellidoPaterno}}</span>
 
@@ -65,11 +66,11 @@
             Ver Model
         </button>
 
-        <button class="btn btn-success" ng-click="LlamarControlador()" ng-disabled="Desabilitar" >
+        <button class="btn btn-success" ng-click="LlamarControlador()" ng-disabled="Desabilitar">
             Cargar Tabla
         </button>
 
-        <input type="text" value="key up" class="form-control" ng-keyup="Presionar()"/>
+        <input type="text" value="key up" class="form-control" ng-keyup="Presionar()" />
 
         <div ng-repeat="d in ListaDatos">
             <button class="btn btn-dark">
@@ -164,7 +165,7 @@
                     </td>
                     <td>
                         <input type="text" ng-model="d.ApellidoMaterno" />
-                    </td> 
+                    </td>
                     <td>
                         <button class="btn btn-secondary" ng-click="EditarFormulario(d)">
                             Editar
@@ -185,6 +186,20 @@
             Utilizar Entity Framework
         </button>
 
+        <input type="text" class="form-text" ng-model="cadena" />
+        <input type="text" class="form-text" ng-model="cadenaEncriptar" />
+        <button class="btn btn-info" ng-click="EncriptarCadena()">
+            Encriptar <i class="fa fa-key"></i>
+        </button>
+        <br />
+
+        <input type="text" class="form-text" ng-model="cadenaNueva" />
+        <button class="btn btn-info" ng-click="DesencriptarCadena()">
+            Desencriptar <i class="fa fa-key"></i>
+        </button>
+        <br />
+
+        <input type="password" class="form-text" />
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -214,9 +229,9 @@
             </div>
         </div>
 
-        
 
-        
+
+
 
 
     </div>

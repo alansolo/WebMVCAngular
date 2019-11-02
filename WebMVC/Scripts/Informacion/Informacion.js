@@ -38,15 +38,14 @@ app.controller("MyController", function ($scope, $http, $window) {
 
 
 
-    $scope.FuncionModel = function()
-    {
+    $scope.FuncionModel = function () {
         var dos = $scope.ControlText;
-    }
+    };
 
     $scope.ClickBoton = function () {
         $scope.HolaMundo = "Ya realizaste click.";
         $scope.ClaseCss = "boton_rojo";
-    }
+    };
 
     $scope.DobleClickBoton = function (texto, texto2) {
         $scope.HolaMundo = "Ya realizaste doble click.";
@@ -54,10 +53,9 @@ app.controller("MyController", function ($scope, $http, $window) {
         $scope.Boton = texto + "-" + texto2;
 
         $scope.Desabilitar = false;
-    }
+    };
 
-    $scope.LlamarControlador = function()
-    {
+    $scope.LlamarControlador = function () {
         $.ajax({
             type: "POST",
             url: "/Informacion/CargarTabla",
@@ -76,14 +74,13 @@ app.controller("MyController", function ($scope, $http, $window) {
 
             }
         });
-    }
+    };
 
-    $scope.ModificarColumna = function(tablaDatos)
-    {
+    $scope.ModificarColumna = function (tablaDatos) {
         tablaDatos.Nombre = tablaDatos.Nombre + "-Nuevo";
 
         $scope.$apply();
-    }
+    };
 
     $scope.AgregarElemento = function (tablaDatos) {
 
@@ -109,7 +106,7 @@ app.controller("MyController", function ($scope, $http, $window) {
         });
 
         //$scope.$apply();
-    }
+    };
 
     $scope.AgregarElemento2 = function () {
 
@@ -135,31 +132,29 @@ app.controller("MyController", function ($scope, $http, $window) {
         });
 
 
-    }
+    };
 
     $scope.Validar = function () {
         if ($scope.ControlText.length > 0) {
             return false;
         }
-        else
-        {
+        else {
             return true;
         }
-    }
+    };
 
     $scope.Presionar = function () {
         alert("Se presiono");
-    }
+    };
 
     $scope.FuncionSeleccion = function (data) {
 
         var dato2 = JSON.parse(data);
 
         alert(dato2.Descripcion);
-    }
+    };
 
-    $scope.LlenarFormulario = function ()
-    {
+    $scope.LlenarFormulario = function () {
         $.ajax({
             type: "POST",
             url: "/Informacion/LlenarFormulario",
@@ -176,12 +171,12 @@ app.controller("MyController", function ($scope, $http, $window) {
 
             }
         });
-    }
+    };
 
     $scope.VerFormulario = function () {
 
         var formu = $scope.Formulario_Model;
-    }
+    };
 
     $scope.PasarDatos = function () {
 
@@ -207,10 +202,9 @@ app.controller("MyController", function ($scope, $http, $window) {
 
             }
         });
-    }
+    };
 
-    $scope.EditarFormulario = function(elemento)
-    {
+    $scope.EditarFormulario = function (elemento) {
         $.ajax({
             type: "POST",
             url: "/Informacion/EditarFormulario",
@@ -224,12 +218,10 @@ app.controller("MyController", function ($scope, $http, $window) {
 
                 //$scope.ListaFormulario = datos;
 
-                if (datos == "OK")
-                {
+                if (datos == "OK") {
                     alert("Se actualizo de forma correcta");
                 }
-                else
-                {
+                else {
                     alert("Ocurrio un error");
                 }
 
@@ -240,7 +232,7 @@ app.controller("MyController", function ($scope, $http, $window) {
 
             }
         });
-    }
+    };
 
     $scope.InsertarFormulario = function () {
 
@@ -272,7 +264,7 @@ app.controller("MyController", function ($scope, $http, $window) {
 
             }
         });
-    }
+    };
 
     $scope.UtilizarEF = function () {
 
@@ -280,7 +272,7 @@ app.controller("MyController", function ($scope, $http, $window) {
             type: "POST",
             url: "/Informacion/UtilizarEF",
             contentType: 'application/json; charset=utf-8',
-            dataType: 'json',           
+            dataType: 'json',
             success: function (datos) {
 
                 //$scope.ListaFormulario = datos;
@@ -298,7 +290,60 @@ app.controller("MyController", function ($scope, $http, $window) {
 
             }
         });
-    }
+    };
+
+
+    $scope.EncriptarCadena = function () {
+
+        var cadena = $scope.cadena;
+
+        $.ajax({
+            type: "POST",
+            url: "/Informacion/EncriptarCadena",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify(
+                {
+                    'cadena': cadena
+                }),
+            success: function (datos) {
+
+                $scope.cadenaEncriptar = datos;
+
+                $scope.$apply();
+
+            },
+            error: function (error) {
+
+            }
+        });
+    };
+
+    $scope.DesencriptarCadena = function () {
+
+        var cadenaEncriptar = $scope.cadenaEncriptar;
+
+        $.ajax({
+            type: "POST",
+            url: "/Informacion/DesencriptarCadena",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify(
+                {
+                    'cadenaEncriptada': cadenaEncriptar
+                }),
+            success: function (datos) {
+
+                $scope.cadenaNueva = datos;
+
+                $scope.$apply();
+
+            },
+            error: function (error) {
+
+            }
+        });
+    };
 
 
 });

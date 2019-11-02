@@ -246,5 +246,23 @@ namespace WebMVC.Controllers
 
             return Json("OK", JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult EncriptarCadena(string cadena)
+        {
+            Negocio.EncriptarDesencriptar enc = new EncriptarDesencriptar();
+
+            string cadenaEncriptada = enc.Encriptar(cadena, "claseseguridad1234+*+*");
+
+            return Json(cadenaEncriptada, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult DesencriptarCadena(string cadenaEncriptada)
+        {
+            Negocio.EncriptarDesencriptar enc = new EncriptarDesencriptar();
+
+            string cadena = enc.Desencriptar(cadenaEncriptada, "claseseguridad1234+*+*");
+
+            return Json(cadena, JsonRequestBehavior.AllowGet);
+        }
     }
 }
