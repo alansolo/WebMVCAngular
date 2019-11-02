@@ -249,6 +249,8 @@ namespace WebMVC.Controllers
 
         public JsonResult EncriptarCadena(string cadena)
         {
+            Session["HolaMundo"] = "Este es un dato que se guarda en la variable de sesion";
+
             Negocio.EncriptarDesencriptar enc = new EncriptarDesencriptar();
 
             string cadenaEncriptada = enc.Encriptar(cadena, "claseseguridad1234+*+*");
