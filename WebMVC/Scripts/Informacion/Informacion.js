@@ -18,6 +18,21 @@ app.controller("MyController", function ($scope, $http, $window) {
 
     $scope.ControlText = "Escribe algo";
 
+    $scope.specialValue = {
+        "id": "12345",
+        "value": "green"
+    };
+
+    $scope.specialValue1 = {
+        "id": "12346",
+        "value": "green"
+    };
+
+    $scope.specialValue2 = {
+        "id": "12347",
+        "value": "green"
+    };
+
     //SE EJECUTA DE INICIO
     $.ajax({
         type: "POST",
@@ -343,6 +358,10 @@ app.controller("MyController", function ($scope, $http, $window) {
 
             }
         });
+    };
+
+    $scope.CheckRadio = function () {
+        var uno = $scope.CatDivisa;
     };
 
 

@@ -266,5 +266,15 @@ namespace WebMVC.Controllers
 
             return Json(cadena, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult PruebaLayout()
+        {
+            return View();
+        }
+
+        public ActionResult PruebaLayout2()
+        {
+            return View();
+        }
     }
 }

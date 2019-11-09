@@ -24,216 +24,243 @@
 <body>
     <div ng-app="MyApp" ng-controller="MyController">
 
-        <div class="alert alert-primary" role="alert">
-            1.-{{HolaMundo}} 2.-{{HolaMundo}}
-        </div>
+        
 
-        <div class="alert alert-secondary" role="alert">
-            {{ControlText}}
-        </div>
+        @*<div class="container">
+            <div class="row">
+                <div class="col" style="background-color:beige; height:400px">
+                    col
+                    <br />
 
-        <button class="btn btn-primary" ng-show="MostrarBoton" ng-dblclick="DobleClickBoton(ControlText, Boton)">
-            Click {{Boton}}
-        </button>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Boton</th>
+                                <th>Agregar</th>
+                                <th>Agregar 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in ListaDatos">
+                                <th>{{d.Id}}</th>
+                                <td>{{d.Nombre}}</td>
+                                <td>{{d.Descripcion}}</td>
+                                <td>
+                                    <button class="btn btn-secondary" ng-click="ModificarColumna(d)">
+                                        Click...
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" ng-click="AgregarElemento(d)">
+                                        Add...
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-info" ng-click="AgregarElemento2()">
+                                        Add 2...
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-        @*FORMULARIO*@
+                </div>
+                <div class="col" style="background-color:aqua;height:300px">
+                    col
+                    <br />
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in ListaFormulario">
+                                <td>
+                                    {{d.Id}}
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="d.Nombre" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="d.ApellidoPaterno" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="d.ApellidoMaterno" />
+                                </td>
+                                <td>
+                                    <button class="btn btn-secondary" ng-click="EditarFormulario(d)">
+                                        Editar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>*@
 
-        <input type="text" value="boton azul" class="form-control" ng-model="ControlText" ng-class="ClaseCss" ng-click="ClickBoton()" />
+            <div class="alert alert-primary" role="alert">
+                1.-{{HolaMundo}} 2.-{{HolaMundo}}
+            </div>
 
-        <br />
+            <div class="alert alert-secondary" role="alert">
+                {{ControlText}}
+            </div>
 
-        <input type="text" title="nombre" ng-model="Formulario_Model.Nombre" />
-
-        <br />
-
-        <input type="text" title="apellido paterno" ng-model="Formulario_Model.ApellidoPaterno" />
-
-        <input type="text" title="apellido materno" ng-model="Formulario_Model.ApellidoMaterno" />
-
-        <span>{{Formulario_Model.ApellidoPaterno}}</span>
-
-        <br />
-
-        <button ng-click="LlenarFormulario()">Llenar Formulario</button>
-
-        <button ng-click="VerFormulario()">Ver Formulario</button>
-
-        <br />
-
-        <button ng-click="PasarDatos()">PasarDatos</button>
-
-        <button class="btn btn-primary" ng-click="FuncionModel()">
-            Ver Model
-        </button>
-
-        <button class="btn btn-success" ng-click="LlamarControlador()" ng-disabled="Desabilitar">
-            Cargar Tabla
-        </button>
-
-        <input type="text" value="key up" class="form-control" ng-keyup="Presionar()" />
-
-        <div ng-repeat="d in ListaDatos">
-            <button class="btn btn-dark">
-                {{d.Nombre}}
+            <button class="btn btn-primary" ng-show="MostrarBoton" ng-dblclick="DobleClickBoton(ControlText, Boton)">
+                Click {{Boton}}
             </button>
-        </div>
 
-        <select class="form-control" id="rolUsuarioMod" ng-model="ControlSeleccion" ng-options="data as data.Nombre for data in ListaDatos track by data.Id" ng-change="FuncionSeleccion(ControlSeleccion)" required>
-            <option value="">-- SELECCIONE --</option>
-        </select>
+            @*FORMULARIO*@
 
-        <select class="form-control" id="rolUsuarioMod2" ng-model="ControlSeleccion" ng-change="FuncionSeleccion(ControlSeleccion)">
-            <option value="">-- SELECCIONE --</option>
-            <option ng-repeat="d in ListaDatos" value="{{d}}">{{d.Nombre}}</option>
-        </select>
+            <input type="text" value="boton azul" class="form-control" ng-model="ControlText" ng-class="ClaseCss" ng-click="ClickBoton()" />
 
-        <div ng-switch="ControlSeleccion.Id">
-            <div ng-switch-when="1">
-                <h1>Dogs</h1>
-                <p>Welcome to a world of dogs.</p>
+            <br />
+
+            <input type="text" title="nombre" ng-model="Formulario_Model.Nombre" />
+
+            <br />
+
+            <input type="text" title="apellido paterno" ng-model="Formulario_Model.ApellidoPaterno" />
+
+            <input type="text" title="apellido materno" ng-model="Formulario_Model.ApellidoMaterno" />
+
+            <span>{{Formulario_Model.ApellidoPaterno}}</span>
+
+            <br />
+
+            <button ng-click="LlenarFormulario()">Llenar Formulario</button>
+
+            <button ng-click="VerFormulario()">Ver Formulario</button>
+
+            <br />
+
+            <button ng-click="PasarDatos()">PasarDatos</button>
+
+            <button class="btn btn-primary" ng-click="FuncionModel()">
+                Ver Model
+            </button>
+
+            <button class="btn btn-success" ng-click="LlamarControlador()" ng-disabled="Desabilitar">
+                Cargar Tabla
+            </button>
+
+            <input type="text" value="key up" class="form-control" ng-keyup="Presionar()" />
+
+            <div ng-repeat="d in ListaDatos">
+                <button class="btn btn-dark">
+                    {{d.Nombre}}
+                </button>
             </div>
-            <div ng-switch-when="2">
-                <h1>Tutorials</h1>
-                <p>Learn from examples.</p>
+
+            <select class="form-control" id="rolUsuarioMod" ng-model="ControlSeleccion" ng-options="data as data.Nombre for data in ListaDatos track by data.Id" ng-change="FuncionSeleccion(ControlSeleccion)" required>
+                <option value="">-- SELECCIONE --</option>
+            </select>
+
+            <select class="form-control" id="rolUsuarioMod2" ng-model="ControlSeleccion" ng-change="FuncionSeleccion(ControlSeleccion)">
+                <option value="">-- SELECCIONE --</option>
+                <option ng-repeat="d in ListaDatos" value="{{d}}">{{d.Nombre}}</option>
+            </select>
+
+            <div ng-switch="ControlSeleccion.Id">
+                <div ng-switch-when="1">
+                    <h1>Dogs</h1>
+                    <p>Welcome to a world of dogs.</p>
+                </div>
+                <div ng-switch-when="2">
+                    <h1>Tutorials</h1>
+                    <p>Learn from examples.</p>
+                </div>
+                <div ng-switch-when="3">
+                    <h1>Cars</h1>
+                    <p>Read about cars.</p>
+                </div>
+                <div ng-switch-default>
+                    <h1>Switch</h1>
+                    <p>Select topic from the dropdown, to switch the content of this DIV.</p>
+                </div>
             </div>
-            <div ng-switch-when="3">
-                <h1>Cars</h1>
-                <p>Read about cars.</p>
-            </div>
-            <div ng-switch-default>
-                <h1>Switch</h1>
-                <p>Select topic from the dropdown, to switch the content of this DIV.</p>
-            </div>
-        </div>
-
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Boton</th>
-                    <th>Agregar</th>
-                    <th>Agregar 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="d in ListaDatos">
-                    <th>{{d.Id}}</th>
-                    <td>{{d.Nombre}}</td>
-                    <td>{{d.Descripcion}}</td>
-                    <td>
-                        <button class="btn btn-secondary" ng-click="ModificarColumna(d)">
-                            Click...
-                        </button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" ng-click="AgregarElemento(d)">
-                            Add...
-                        </button>
-                    </td>
-                    <td>
-                        <button class="btn btn-info" ng-click="AgregarElemento2()">
-                            Add 2...
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
 
 
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Editar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="d in ListaFormulario">
-                    <td>
-                        {{d.Id}}
-                    </td>
-                    <td>
-                        <input type="text" ng-model="d.Nombre" />
-                    </td>
-                    <td>
-                        <input type="text" ng-model="d.ApellidoPaterno" />
-                    </td>
-                    <td>
-                        <input type="text" ng-model="d.ApellidoMaterno" />
-                    </td>
-                    <td>
-                        <button class="btn btn-secondary" ng-click="EditarFormulario(d)">
-                            Editar
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            
 
-        <br />
+            <br />
 
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Insertar nuevo
-        </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Insertar nuevo
+            </button>
 
-        <button type="button" class="btn btn-primary" ng-click="UtilizarEF()">
-            Utilizar Entity Framework
-        </button>
+            <button type="button" class="btn btn-primary" ng-click="UtilizarEF()">
+                Utilizar Entity Framework
+            </button>
 
-        <input type="text" class="form-text" ng-model="cadena" />
-        <input type="text" class="form-text" ng-model="cadenaEncriptar" />
-        <button class="btn btn-info" ng-click="EncriptarCadena()">
-            Encriptar <i class="fa fa-key"></i>
-        </button>
-        <br />
+            <input type="text" class="form-text" ng-model="cadena" />
+            <input type="text" class="form-text" ng-model="cadenaEncriptar" />
+            <button class="btn btn-info" ng-click="EncriptarCadena()">
+                Encriptar <i class="fa fa-key"></i>
+            </button>
+            <br />
 
-        <input type="text" class="form-text" ng-model="cadenaNueva" />
-        <button class="btn btn-info" ng-click="DesencriptarCadena()">
-            Desencriptar <i class="fa fa-key"></i>
-        </button>
-        <br />
+            <input type="text" class="form-text" ng-model="cadenaNueva" />
+            <button class="btn btn-info" ng-click="DesencriptarCadena()">
+                Desencriptar <i class="fa fa-key"></i>
+            </button>
+            <br />
 
-        <input type="password" class="form-text" />
+            <input type="password" class="form-text" />
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" title="nombrte" ng-model="FormularioNuevo.Nombre" />
-                        <br />
-                        <input type="text" title="apellido paterno" ng-model="FormularioNuevo.ApellidoPaterno" />
-                        <br />
-                        <input type="text" title="apellido materno" ng-model="FormularioNuevo.ApellidoMaterno" />
-                        <br />
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" title="nombrte" ng-model="FormularioNuevo.Nombre" />
+                            <br />
+                            <input type="text" title="apellido paterno" ng-model="FormularioNuevo.ApellidoPaterno" />
+                            <br />
+                            <input type="text" title="apellido materno" ng-model="FormularioNuevo.ApellidoMaterno" />
+                            <br />
 
-                        <button ng-click="InsertarFormulario()" class="btn-dark btn-primary">Guardar</button>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                            <button ng-click="InsertarFormulario()" class="btn-dark btn-primary">Guardar</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="customRadio1" name="divisaRadio" ng-value="specialValue">
+                <label class="custom-control-label" for="customRadio1">1</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="customRadio2" name="divisaRadio" ng-value="specialValue1">
+                <label class="custom-control-label" for="customRadio2">2</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="customRadio3" name="divisaRadio" ng-value="specialValue2">
+                <label class="custom-control-label" for="customRadio3">3</label>
+            </div>
+
+            <button class="btn btn-dark" ng-click="CheckRadio()">Check</button>
         </div>
-
-
-
-
-
-
-    </div>
 </body>
 </html>
