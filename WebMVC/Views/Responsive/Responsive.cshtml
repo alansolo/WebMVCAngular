@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Responsive";
+    Layout = "~/Views/Shared/_LayoutMVC.cshtml";
+}
+
+<head>
+    <script src="~/Scripts/Responsive/Responsive.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-12 col-xl-3">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 col-xl-2" ng-show="false">
+                <label class="custom-file-label">
+                    Etiqueta 1
+                </label>
+            </div>
+            <div class="col-12 col-md-4 col-xl-2" ng-hide="true">
+               <input class="form-control" type="text" />
+            </div>
+            <div class="col-12 col-md-4 col-xl-2 d-block">
+                <button class="btn btn-info">
+                    Clic 1
+                </button>
+            </div>
+            <div class="col-12 col-md-4 col-xl-2">
+                <button class="btn btn-primary" ng-click="CambiarCSS()">
+                    Cambiar CSS
+                </button>
+                <div class="dropdown" ng-class="ClaseShow">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-xl-2">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary">Left</button>
+                    <button type="button" class="btn btn-secondary">Middle</button>
+                    <button type="button" class="btn btn-secondary">Right</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-xl-2">
+                <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
