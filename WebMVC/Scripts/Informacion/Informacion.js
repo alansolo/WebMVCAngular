@@ -233,7 +233,7 @@ app.controller("MyController", function ($scope, $http, $window) {
 
                 //$scope.ListaFormulario = datos;
 
-                if (datos == "OK") {
+                if (datos === "OK") {
                     alert("Se actualizo de forma correcta");
                 }
                 else {
@@ -266,7 +266,7 @@ app.controller("MyController", function ($scope, $http, $window) {
 
                 //$scope.ListaFormulario = datos;
 
-                if (datos != null) {
+                if (datos !== null) {
 
                     $scope.ListaFormulario.push(datos);
 

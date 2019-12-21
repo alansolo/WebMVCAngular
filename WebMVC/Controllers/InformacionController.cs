@@ -13,11 +13,35 @@ namespace WebMVC.Controllers
         // GET: Informacion
         public ActionResult VistaAngular()
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("/Login/Login");
+            }
+
+            Models.Login login = (Login)Session["Usuario"];
+
+            ViewData["Login"] = login;
+
             return View();
         }
 
         public JsonResult CargarTabla()
         {
+            if (Session["Usuario"] == null)
+            {
+                int rol = (int)Session["Rol"];
+
+                if (rol == 1)
+                {
+
+                }
+                else
+                {
+                }
+
+                return Json("ERROR", JsonRequestBehavior.AllowGet);
+            }
+
             List<DatosTabla> listaDatos = new List<Models.DatosTabla>();
             DatosTabla datos = new Models.DatosTabla();
 
