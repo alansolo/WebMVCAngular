@@ -23,93 +23,99 @@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width" />
-    <title>VistaAngular</title>
+    <title>@Resources.Idioma.Titulo</title>
 </head>
 <body>
     <div ng-app="MyApp" ng-controller="MyController">
 
-        <h3>@data.usuario</h3>
+        @*<h3>@data.usuario</h3>*@
 
         @*<div class="container">
-                <div class="row">
-                    <div class="col" style="background-color:beige; height:400px">
-                        col
-                        <br />
+            <div class="row">
+                <div class="col" style="background-color:beige; height:400px">
+                    col
+                    <br />
 
-                        <table class="table table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Descripcion</th>
-                                    <th>Boton</th>
-                                    <th>Agregar</th>
-                                    <th>Agregar 2</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="d in ListaDatos">
-                                    <th>{{d.Id}}</th>
-                                    <td>{{d.Nombre}}</td>
-                                    <td>{{d.Descripcion}}</td>
-                                    <td>
-                                        <button class="btn btn-secondary" ng-click="ModificarColumna(d)">
-                                            Click...
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" ng-click="AgregarElemento(d)">
-                                            Add...
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-info" ng-click="AgregarElemento2()">
-                                            Add 2...
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Boton</th>
+                                <th>Agregar</th>
+                                <th>Agregar 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in ListaDatos">
+                                <th>{{d.Id}}</th>
+                                <td>{{d.Nombre}}</td>
+                                <td>{{d.Descripcion}}</td>
+                                <td>
+                                    <button class="btn btn-secondary" ng-click="ModificarColumna(d)">
+                                        Click...
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" ng-click="AgregarElemento(d)">
+                                        Add...
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-info" ng-click="AgregarElemento2()">
+                                        Add 2...
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                    </div>
-                    <div class="col" style="background-color:aqua;height:300px">
-                        col
-                        <br />
-                        <table class="table table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido Paterno</th>
-                                    <th>Apellido Materno</th>
-                                    <th>Editar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="d in ListaFormulario">
-                                    <td>
-                                        {{d.Id}}
-                                    </td>
-                                    <td>
-                                        <input type="text" ng-model="d.Nombre" />
-                                    </td>
-                                    <td>
-                                        <input type="text" ng-model="d.ApellidoPaterno" />
-                                    </td>
-                                    <td>
-                                        <input type="text" ng-model="d.ApellidoMaterno" />
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-secondary" ng-click="EditarFormulario(d)">
-                                            Editar
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
-            </div>*@
+                <div class="col" style="background-color:aqua;height:300px">
+                    col
+                    <br />
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in ListaFormulario">
+                                <td>
+                                    {{d.Id}}
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="d.Nombre" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="d.ApellidoPaterno" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="d.ApellidoMaterno" />
+                                </td>
+                                <td>
+                                    <button class="btn btn-secondary" ng-click="EditarFormulario(d)">
+                                        Editar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>*@
+
+        @*COMBO DE IDIOMAS*@
+        <select class="form-control" id="rolUsuarioMod" ng-model="SelectIdioma" ng-options="data as data.Nombre for data in ListaIdioma track by data.Clave" ng-change="SeleccionIdioma(SelectIdioma)" required>
+            <option value="">-- SELECCIONE --</option>
+        </select>
+
 
         <div class="alert alert-primary" role="alert">
             1.-{{HolaMundo}} 2.-{{HolaMundo}}

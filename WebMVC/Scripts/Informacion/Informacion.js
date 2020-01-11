@@ -33,6 +33,8 @@ app.controller("MyController", function ($scope, $http, $window) {
         "value": "green"
     };
 
+    //$scope.SelectIdioma = "";
+
     //SE EJECUTA DE INICIO
     $.ajax({
         type: "POST",
@@ -51,7 +53,50 @@ app.controller("MyController", function ($scope, $http, $window) {
         }
     });
 
+    //SE CARGAN LOS IDIOMAS
+    $.ajax({
+        type: "POST",
+        url: "/Informacion/CargarIdioma",
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (datos) {
 
+            $scope.ListaIdioma = datos;
+
+            $scope.$apply();
+
+        },
+        error: function (error) {
+
+        }
+    });
+
+    $scope.SeleccionIdioma = function (idioma) {
+
+
+        $.ajax({
+            type: "POST",
+            url: "/Informacion/SeleccionarIdioma",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify(
+                {
+                    'idioma': idioma.Clave
+                }),
+            success: function (datos) {
+
+                alert("Se cargo el idioma: " + datos);
+
+                //$window.location.href = "/Informacion/VistaAngular";
+
+                $scope.$apply();
+
+            },
+            error: function (error) {
+
+            }
+        });
+    };
 
     $scope.FuncionModel = function () {
         var dos = $scope.ControlText;

@@ -29,6 +29,7 @@ namespace WebMVC.Controllers
                 login.password = password;
 
                 Session["Usuario"] = login;
+                Session["Idioma"] = "";
                 //Response.Redirect("/Informacion/VistaAngular", true);
             }
             else

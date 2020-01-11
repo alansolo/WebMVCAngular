@@ -8,6 +8,7 @@ app.controller("MyController", function ($scope, $http, $window) {
 
     $scope.ValidarLogin = function (usuario, password) {
 
+        /*
         $.ajax({
             type: "POST",
             url: "/Login/ValidarLogin",
@@ -36,6 +37,8 @@ app.controller("MyController", function ($scope, $http, $window) {
 
             }
         });
+        */
+        $window.location.href = "/Informacion/VistaAngular";
 
         return;
     };

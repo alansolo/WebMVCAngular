@@ -1,7 +1,9 @@
 ﻿using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using WebMVC.Models;
@@ -13,6 +15,7 @@ namespace WebMVC.Controllers
         // GET: Informacion
         public ActionResult VistaAngular()
         {
+            /*
             if (Session["Usuario"] == null)
             {
                 Response.Redirect("/Login/Login");
@@ -21,8 +24,63 @@ namespace WebMVC.Controllers
             Models.Login login = (Login)Session["Usuario"];
 
             ViewData["Login"] = login;
+            */
+
+            //CultureInfo c = new CultureInfo("es-ES");
+
+            Session["Idioma"] = "";
+
+            string idioma = Session["Idioma"].ToString();
+
+            if (idioma != "")
+            {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(idioma);
+            }
+
+            Models.Login login = new Login();
+
+            login.password = "1234";
+            login.usuario = "Administrador";
+
+            Session["Usuario"] = login;
 
             return View();
+        }
+
+        public JsonResult CargarIdioma()
+        {
+            List<WebMVC.Models.Idioma> ListaIdioma = new List<Idioma>();
+
+            WebMVC.Models.Idioma idioma = new Idioma();          
+
+            idioma.Id = 1;
+            idioma.Nombre = "Español";
+            idioma.Clave = "es-MX";
+
+            ListaIdioma.Add(idioma);
+
+            idioma = new Idioma();
+
+            idioma.Id = 2;
+            idioma.Nombre = "Ingles";
+            idioma.Clave = "en-US";
+
+            ListaIdioma.Add(idioma);
+
+            return Json(ListaIdioma, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult SeleccionarIdioma(string idioma)
+        {
+            if (idioma != null)
+            {
+
+                Session["Idioma"] = idioma;
+
+                
+            }
+
+            return Json(idioma, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult CargarTabla()
