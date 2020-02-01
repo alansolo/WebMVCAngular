@@ -36,6 +36,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +48,7 @@
   <ItemGroup>
     <Compile Include="EncriptarDesencriptar.cs" />
     <Compile Include="Models\Formulario.cs" />
+    <Compile Include="NegFactura\NegFactura.cs" />
     <Compile Include="NegFormulario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,6 +56,10 @@
     <ProjectReference Include="..\BaseDatos\3.BaseDatos.csproj">
       <Project>{9b82a575-b8a8-497b-8d6f-538e0b12d9b7}</Project>
       <Name>3.BaseDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{1e57d955-7927-4cda-8bd1-fd8358f5ca21}</Project>
+      <Name>Entidades</Name>
     </ProjectReference>
     <ProjectReference Include="..\Seguridad\9.Seguridad.csproj">
       <Project>{86dff3ae-1f3f-4b07-8d96-172abeb43b17}</Project>

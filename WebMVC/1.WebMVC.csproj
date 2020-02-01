@@ -90,6 +90,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -217,6 +218,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformacionController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -268,6 +270,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Factura\Factura.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Informacion\Informacion.css" />
@@ -348,6 +351,7 @@
     <None Include="Connected Services\ServiceWCF\Service1.wsdl" />
     <Content Include="Properties\DataSources\WCFPrueba.CompositeType.datasource" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Factura\Factura.js" />
     <Content Include="Scripts\Informacion\Informacion.js" />
     <Content Include="Scripts\Informacion\PruebaLayout.js" />
     <Content Include="Scripts\Informacion\PruebaLayout2.js" />
@@ -427,6 +431,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\VistaParcial.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Factura\Factura.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -440,6 +445,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{1e57d955-7927-4cda-8bd1-fd8358f5ca21}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Negocio\2.Negocio.csproj">
       <Project>{fc732589-760f-47a3-9c08-5b0e579851ef}</Project>
       <Name>2.Negocio</Name>
